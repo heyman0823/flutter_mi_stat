@@ -15,7 +15,10 @@ Flutter plugin for mi stat.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-
+  s.frameworks = 'MobileCoreServices', 'SystemConfiguration'
+  s.libraries = 'z'
+  s.vendored_libraries = 'Classes/libMiStatSDK.a'
+  s.static_framework = true
   s.ios.deployment_target = '8.0'
 end
 

@@ -14,10 +14,10 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     FlutterMiStat.init(
-      androidAppId: '2882303761517936293',
-      androidAppKey: '5361793664293',
+      androidAppId: '',
+      androidAppKey: '',
       channel: 'com.xiaomi.fluttermistat',
-      policy: FlutterMiStat.UPLOAD_POLICY_BATCH,
+      policy: FlutterMiStat.UPLOAD_POLICY_REAL_TIME,
       interval: 60000,
       enableURLStat: true,
     );

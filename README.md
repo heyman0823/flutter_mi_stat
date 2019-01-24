@@ -1,14 +1,33 @@
 # flutter_mi_stat
 
-Flutter plugin for mi stat.
+Android/iOS平台上集成小米统计
 
-## Getting Started
+## iOS
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+* info.plist中添加：
+```xml
+<key>MiSDKAppID</key>
+<string>your iOS app id</string>
+<key>MiSDKAppKey</key>
+<string>your iOS app key</string>
+```
+## Flutter
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+* 初始化：
+```dart
+FlutterMiStat.init(
+  androidAppId: ANDROID_APP_ID,
+  androidAppKey: ANDROID_APP_KEY,
+  channel: CHANNEL,
+  policy: FlutterMiStat.UPLOAD_POLICY_REAL_TIME,
+  enableURLStat: true,
+);
+```
+* 打点：
+```dart
+FlutterMiStat.recordCountEvent(
+  category: category,
+  key: key,
+  params: params,
+);
+```

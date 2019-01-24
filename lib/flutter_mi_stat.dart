@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:meta/meta.dart';
 
 class FlutterMiStat {
   static const MethodChannel _channel = const MethodChannel('flutter_mi_stat');
@@ -13,7 +13,7 @@ class FlutterMiStat {
   static void init({
     @required String androidAppId,
     @required String androidAppKey,
-    String channel,
+    String channel = '',
     int policy = UPLOAD_POLICY_REAL_TIME,
     int interval = 0,
     bool enableURLStat = false,
