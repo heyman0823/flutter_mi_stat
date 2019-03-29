@@ -12,7 +12,7 @@ Flutter plugin for mi stat.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'Classes/**/*.h','Classes/**/*.m','Classes/**/*.swift'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.frameworks = 'MobileCoreServices', 'SystemConfiguration'
@@ -21,4 +21,3 @@ Flutter plugin for mi stat.
   s.static_framework = true
   s.ios.deployment_target = '8.0'
 end
-
