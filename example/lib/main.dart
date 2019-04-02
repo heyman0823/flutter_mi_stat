@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:flutter/services.dart';
 import 'package:flutter_mi_stat/flutter_mi_stat.dart';
 
 void main() => runApp(MyApp());
@@ -9,18 +12,31 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String _platformVersion = 'Unknown';
 
   @override
   void initState() {
     super.initState();
-    FlutterMiStat.init(
-      androidAppId: '',
-      androidAppKey: '',
-      channel: 'com.xiaomi.fluttermistat',
-      policy: FlutterMiStat.UPLOAD_POLICY_REAL_TIME,
-      interval: 60000,
-      enableURLStat: true,
-    );
+    initPlatformState();
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  void initPlatformState() {
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+          try {
+      FlutterMiStat.recordCountEvent(
+        category: 'default',
+        key: 'name',
+        params: null,
+      );
+    } on Exception catch (e) {
+    }
+    });
   }
 
   @override
@@ -31,17 +47,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: RaisedButton(
-            child: Text('record'),
-            onPressed: () => FlutterMiStat.recordCountEvent(
-              category: 'test',
-              key: 'test_event',
-              params: {
-                'key1': 'value1',
-                'key2': 'value2',
-              },
-            ),
-          ),
+          child: Text('Running on: $_platformVersion\n'),
         ),
       ),
     );

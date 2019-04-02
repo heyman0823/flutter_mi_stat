@@ -63,7 +63,7 @@ public class SwiftFlutterMiStatPlugin: NSObject, FlutterPlugin, MiAAnalyticsNetw
       return UPLOAD_POLICY_TYPE_LAUNCH;
     }
 
-    func mistatAnalyticsNetwork(_ url: String!) -> String! {
+    public func mistatAnalyticsNetwork(_ url: String!) -> String! {
       return url;
     }
 }

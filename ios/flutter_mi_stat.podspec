@@ -21,4 +21,3 @@ Flutter plugin for mi stat.
   s.static_framework = true
   s.ios.deployment_target = '8.0'
 end
-
